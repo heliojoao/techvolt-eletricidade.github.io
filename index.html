@@ -415,6 +415,17 @@
             font-weight: 600;
         }
 
+        /* Link do Email */
+        .bloco-contacto div p a {
+            color: var(--texto-claro);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .bloco-contacto div p a:hover {
+            color: var(--cor-azul);
+        }
+
         .mapa-cobertura {
             background: linear-gradient(135deg, #091420, #070708);
             border: 1px solid rgba(0, 210, 255, 0.2);
@@ -501,11 +512,11 @@
 </head>
 <body>
 
-    <!-- Header com o teu logo.gift -->
+    <!-- Header Corrigido para logo.gif -->
     <header>
         <div class="nav-container">
             <div class="logo-box">
-                <img src="logo.gift" alt="TechVolt Logo" class="logo-img">
+                <img src="logo.gif" alt="TechVolt Logo" class="logo-img">
             </div>
             <ul class="nav-links">
                 <li><a href="#servicos">Serviços</a></li>
@@ -518,7 +529,7 @@
         </div>
     </header>
 
-    <!-- Hero Section sem Engenharia -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">
             <div class="badge-dgeg">
@@ -602,7 +613,7 @@
         </div>
     </section>
 
-    <!-- Secção de Termografia Corrigida com termografia.jpg e termografia2.jpg -->
+    <!-- Secção de Termografia -->
     <section id="termografia" class="termografia-section">
         <div class="termo-container">
             <div class="termo-galeria">
@@ -635,7 +646,7 @@
                     <i class="fa-solid fa-envelope"></i>
                     <div>
                         <h4>E-mail Profissional</h4>
-                        <p>techvolt.eletrecista@gmail.com</p>
+                        <p><a href="mailto:techvolt.eletrecista@gmail.com">techvolt.eletrecista@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="bloco-contacto">
