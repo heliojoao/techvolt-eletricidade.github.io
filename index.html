@@ -6,61 +6,109 @@
     <title>TechVolt — Instalações Elétricas & Certificação</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts para um aspeto mais moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #0b0c10; color: #ffffff; font-family: sans-serif; }
+        body { 
+            background-color: #0d0f12; 
+            color: #e4e6eb; 
+            font-family: 'Inter', sans-serif;
+        }
         .text-accent-blue { color: #00d2ff; }
         .text-accent-yellow { color: #f5b301; }
-        .btn-whatsapp { background-color: #25D366; color: white; font-weight: bold; }
-        .btn-whatsapp:hover { background-color: #20ba5a; color: white; }
-        .card-custom { background-color: #1f2833; border: 1px solid #45f3ff; }
+        
+        /* Botão WhatsApp Premium */
+        .btn-whatsapp { 
+            background-color: #25D366; 
+            color: white; 
+            font-weight: 600; 
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-whatsapp:hover { 
+            background-color: #20ba5a; 
+            color: white; 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Cartões estilo Cyberpunk / Tech Moderno */
+        .card-custom { 
+            background-color: #161a22; 
+            border: 1px solid rgba(0, 210, 255, 0.15); 
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .card-custom:hover {
+            transform: translateY(-5px);
+            border-color: #00d2ff;
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.1);
+        }
+        
+        .badge-dgeg {
+            background-color: rgba(245, 179, 1, 0.1);
+            border: 1px solid rgba(245, 179, 1, 0.3);
+            border-radius: 30px;
+        }
     </style>
 </head>
 <body>
 
     <!-- HERO SECTION -->
-    <div class="container text-center my-5 py-5">
-        <!-- Espaço para o teu logótipo animado -->
-        <img src="logo.gif" alt="TechVolt Logo" class="img-fluid mb-4" style="max-width: 400px; min-height: 100px;">
-        <h1 class="h3 fw-light">TechVolt — Instalações Elétricas, Reparações Rápidas & Diagnóstico Avançado</h1>
+    <div class="container text-center my-5 py-4">
+        <!-- O teu logótipo animado -->
+        <img src="logo.gif" alt="TechVolt Logo" class="img-fluid mb-4" style="max-width: 380px;">
+        
+        <h1 class="h4 fw-light text-secondary max-w-xl mx-auto px-3" style="letter-spacing: 0.5px;">
+            Instalações Elétricas, Reparações Rápidas & Diagnóstico Avançado
+        </h1>
         
         <!-- SELO OFICIAL DGEG -->
-        <div class="mt-4 p-3 border border-warning rounded d-inline-block bg-dark">
-            <p class="mb-0 text-accent-yellow fw-bold">🛡️ Técnico Responsável por Execução e Exploração (DGEG)</p>
-            <small class="text-muted">Habilitado para a emissão de Termos de Responsabilidade oficiais e vistorias legais.</small>
+        <div class="mt-4 p-3 badge-dgeg d-inline-block text-start text-sm-center mx-3">
+            <span class="text-accent-yellow fw-bold d-block d-sm-inline mb-1 mb-sm-0">⚡ Técnico Responsável por Execução e Exploração (DGEG)</span>
+            <span class="text-muted d-block d-sm-inline ms-sm-2 small">| Termos de Responsabilidade & Vistorias</span>
         </div>
 
         <!-- BOTÃO WHATSAPP -->
-        <div class="mt-4">
-            <a href="https://wa.me/3519XXXXXXXX?text=Olá! Gostaria de solicitar um serviço técnico à TechVolt." class="btn btn-whatsapp btn-lg px-4 py-3 rounded-pill" target="_blank">
-                ⚡ Falar com Técnico no WhatsApp
+        <div class="mt-5">
+            <a href="https://wa.me/3519XXXXXXXX?text=Olá! Gostaria de solicitar um serviço técnico à TechVolt." class="btn btn-whatsapp btn-lg px-5 py-3 rounded-pill fs-6" target="_blank">
+                💬 Falar com Técnico no WhatsApp
             </a>
         </div>
     </div>
 
-    <!-- COLUNAS DE SERVIÇOS -->
-    <div class="container my-5">
-        <div class="row g-4">
-            <!-- Coluna 1 -->
-            <div class="col-md-4">
+    <!-- SEÇÃO DE SERVIÇOS -->
+    <div class="container my-5 pb-5">
+        <div class="row g-4 justify-content-center">
+            
+            <!-- Card 1 -->
+            <div class="col-lg-4 col-md-6">
                 <div class="card card-custom h-100 p-4">
-                    <h3 class="h5 text-accent-blue fw-bold">⚡ Instalações & Execução</h3>
-                    <p class="text-secondary small">Execução de novas infraestruturas elétricas de raiz em baixa tensão para moradias, comércio e indústrias. Emissão de Termos de Responsabilidade para novos contratos.</p>
+                    <div class="mb-3 fs-3">🛠️</div>
+                    <h3 class="h5 text-accent-blue fw-semibold mb-3">Instalações & Execução</h3>
+                    <p class="text-secondary small lh-base mb-0">Execução de novas infraestruturas elétricas de raiz em baixa tensão para moradias, comércio e indústrias. Emissão de Termos de Responsabilidade para novos contratos.</p>
                 </div>
             </div>
-            <!-- Coluna 2 -->
-            <div class="col-md-4">
+            
+            <!-- Card 2 -->
+            <div class="col-lg-4 col-md-6">
                 <div class="card card-custom h-100 p-4">
-                    <h3 class="h5 text-accent-blue fw-bold">🔧 Manutenção & Exploração</h3>
-                    <p class="text-secondary small">Responsabilidade técnica e controlo de instalações elétricas de serviço particular. Garantia de conformidade, segurança e resolução célere de avarias.</p>
+                    <div class="mb-3 fs-3">⚡</div>
+                    <h3 class="h5 text-accent-blue fw-semibold mb-3">Manutenção & Exploração</h3>
+                    <p class="text-secondary small lh-base mb-0">Responsabilidade técnica e controlo de instalações elétricas de serviço particular. Garantia de conformidade, segurança e resolução célere de avarias.</p>
                 </div>
             </div>
-            <!-- Coluna 3 -->
-            <div class="col-md-4">
+            
+            <!-- Card 3 -->
+            <div class="col-lg-4 col-md-6">
                 <div class="card card-custom h-100 p-4">
-                    <h3 class="h5 text-accent-blue fw-bold">🔍 Inspeções & Termografia</h3>
-                    <p class="text-secondary small">Diagnóstico elétrico preventivo de alta precisão. Localização de sobreaquecimentos ocultos em quadros elétricos e testes de segurança True RMS.</p>
+                    <div class="mb-3 fs-3">🔍</div>
+                    <h3 class="h5 text-accent-blue fw-semibold mb-3">Inspeções & Termografia</h3>
+                    <p class="text-secondary small lh-base mb-0">Diagnóstico elétrico preventivo de alta precisão. Localização de sobreaquecimentos ocultos em quadros elétricos e testes de segurança True RMS.</p>
                 </div>
             </div>
+
         </div>
     </div>
 
