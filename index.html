@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechVolt | Eletricista Certificado DGEG</title>
-    <!-- FontAwesome para Ícones Modernos -->
+    <title>TechVolt | Instalações, Reparações e Inspeções Elétricas</title>
+    <!-- FontAwesome para Ícones Corrigidos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-principal: #121214;
-            --bg-secundario: #1a1a1e;
-            --bg-cartao: #202024;
-            --cor-primaria: #f59e0b; /* Dourado / Amarelo Técnico */
-            --cor-primaria-hover: #d97706;
+            --bg-principal: #070708; /* Preto ultra profundo do logo */
+            --bg-secundario: #0f1015; /* Antracite escuro azulado */
+            --bg-cartao: #14161e; 
+            --cor-azul: #00d2ff; /* Azul elétrico do raio/ficha */
+            --cor-dourado: #ffb703; /* Dourado do TechVolt */
+            --cor-dourado-hover: #fb8500;
             --texto-claro: #ffffff;
-            --texto-mutado: #a1a1aa;
+            --texto-mutado: #94a3b8;
             --alerta: #ef4444;
             --whatsapp: #25d366;
         }
@@ -28,47 +29,52 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-principal);
             color: var(--texto-claro);
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 1.15rem;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.05em;
         }
 
         /* Header / Navegação */
         header {
-            background-color: rgba(26, 26, 30, 0.95);
+            background-color: rgba(7, 7, 8, 0.95);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #2e2e35;
+            border-bottom: 2px solid rgba(0, 210, 255, 0.2);
             backdrop-filter: blur(10px);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--texto-claro);
+        /* Espaço para o Logo */
+        .logo-box {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
         }
 
-        .logo span {
-            color: var(--cor-primaria);
+        .logo-img {
+            height: 50px; /* Ajuste ideal para o teu logo.jpg */
+            display: block;
         }
 
         .nav-links {
@@ -80,87 +86,96 @@
         .nav-links a {
             color: var(--texto-mutado);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1rem;
             transition: color 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--cor-primaria);
+            color: var(--cor-azul);
         }
 
         .btn-header {
-            background-color: var(--cor-primaria);
+            background: linear-gradient(90deg, var(--cor-azul), var(--cor-dourado));
             color: var(--bg-principal);
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-weight: 600;
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            font-weight: 800;
             text-decoration: none;
-            transition: background 0.3s;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+            transition: transform 0.3s;
         }
 
         .btn-header:hover {
-            background-color: var(--cor-primaria-hover);
+            transform: scale(1.05);
         }
 
         /* Hero Section */
         .hero {
-            padding: 10rem 2rem 6rem 2rem;
+            padding: 11rem 2rem 6rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 4rem;
             align-items: center;
         }
 
         .hero-text h1 {
-            font-size: 3rem;
-            line-height: 1.2;
+            font-size: 2.8rem;
+            line-height: 1.1;
             margin-bottom: 1.5rem;
+            text-transform: uppercase;
         }
 
-        .hero-text h1 span {
-            color: var(--cor-primaria);
-        }
+        .hero-text h1 .azul { color: var(--cor-azul); text-shadow: 0 0 10px rgba(0,210,255,0.3); }
+        .hero-text h1 .dourado { color: var(--cor-dourado); text-shadow: 0 0 10px rgba(255,183,3,0.3); }
 
         .hero-text p {
-            color: var(--texto-mutated);
-            font-size: 1.1rem;
+            color: var(--texto-mutado);
+            font-size: 1.3rem;
             margin-bottom: 2rem;
-            max-width: 540px;
+            max-width: 580px;
         }
 
         .badge-dgeg {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background-color: rgba(245, 158, 11, 0.1);
-            border: 1px solid var(--cor-primaria);
-            color: var(--cor-primaria);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
+            gap: 0.6rem;
+            background-color: rgba(255, 183, 3, 0.08);
+            border: 1px solid var(--cor-dourado);
+            color: var(--cor-dourado);
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
             margin-bottom: 1.5rem;
+            box-shadow: 0 0 10px rgba(255,183,3,0.1);
         }
 
-        /* Formulário Embutido Lateral (Referência Imagem 4) */
+        /* Formulário */
         .hero-form-box {
             background-color: var(--bg-secundario);
-            border: 1px solid #2e2e35;
-            border-radius: 12px;
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            border-radius: 8px;
             padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .hero-form-box h3 {
             font-size: 1.4rem;
             margin-bottom: 0.5rem;
+            color: var(--texto-claro);
+            text-transform: uppercase;
         }
 
         .hero-form-box p {
             color: var(--texto-mutado);
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-bottom: 1.5rem;
         }
 
@@ -170,105 +185,49 @@
 
         .form-group label {
             display: block;
-            font-size: 0.85rem;
+            font-size: 1rem;
             margin-bottom: 0.4rem;
-            color: var(--texto-mutado);
+            color: var(--texto-claro);
+            font-weight: 600;
         }
 
         .form-group input, .form-group textarea {
             width: 100%;
             background-color: var(--bg-cartao);
-            border: 1px solid #3e3e45;
+            border: 1px solid #2e323d;
             padding: 0.8rem;
-            border-radius: 6px;
+            border-radius: 4px;
             color: white;
-            font-size: 0.95rem;
-            transition: border 0.3s;
+            font-size: 1.1rem;
+            transition: border-color 0.3s;
         }
 
         .form-group input:focus, .form-group textarea:focus {
             outline: none;
-            border-color: var(--cor-primaria);
+            border-color: var(--cor-azul);
+            box-shadow: 0 0 8px rgba(0,210,255,0.2);
         }
 
         .btn-submit {
             width: 100%;
-            background-color: var(--cor-primaria);
+            background: linear-gradient(90deg, var(--cor-dourado), var(--cor-dourado-hover));
             color: var(--bg-principal);
             border: none;
             padding: 1rem;
-            border-radius: 6px;
-            font-weight: 700;
+            border-radius: 4px;
+            font-weight: 800;
             cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: opacity 0.3s;
         }
 
         .btn-submit:hover {
-            background-color: var(--cor-primaria-hover);
+            opacity: 0.9;
         }
 
-        /* Secção Sinais de Alerta (Referência Imagem 1 e 2) */
-        .alerta-section {
-            background-color: var(--bg-secundario);
-            padding: 5rem 2rem;
-            border-top: 1px solid #2e2e35;
-            border-bottom: 1px solid #2e2e35;
-        }
-
-        .alerta-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .alerta-imagem {
-            position: relative;
-            background: linear-gradient(135deg, #2b1010, #1a1a1e);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 12px;
-            padding: 3rem;
-            text-align: center;
-        }
-
-        .alerta-imagem i {
-            font-size: 4rem;
-            color: var(--alerta);
-            margin-bottom: 1rem;
-        }
-
-        .alerta-imagem h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #fca5a5;
-        }
-
-        .alerta-texto h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .lista-alertas {
-            list-style: none;
-        }
-
-        .lista-alertas li {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-            font-size: 1.05rem;
-        }
-
-        .lista-alertas li i {
-            color: var(--alerta);
-            margin-top: 0.25rem;
-        }
-
-        /* Serviços Avançados (Referência Imagem 5, 6 e 7) */
+        /* Grelha de Serviços Corrigida e Completada */
         .servicos-section {
             padding: 6rem 2rem;
             max-width: 1200px;
@@ -281,75 +240,144 @@
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--cor-azul);
+            display: inline-block;
+            padding-bottom: 0.5rem;
             margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--texto-mutado);
-            max-width: 600px;
-            margin: 0 auto;
         }
 
         .servicos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .servico-card {
-            background-color: var(--bg-cartao);
-            border: 1px solid #2e2e35;
-            border-radius: 8px;
+            background-color: var(--bg-secundario);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
             padding: 2.5rem;
             transition: transform 0.3s, border-color 0.3s;
         }
 
         .servico-card:hover {
             transform: translateY(-5px);
-            border-color: var(--cor-primaria);
+            border-color: var(--cor-dourado);
+            box-shadow: 0 5px 20px rgba(255,183,3,0.05);
         }
 
+        /* Ícones Fixos e Diferenciados por Secção */
         .servico-icon {
-            font-size: 2rem;
-            color: var(--cor-primaria);
+            font-size: 2.2rem;
+            color: var(--cor-dourado);
             margin-bottom: 1.5rem;
+            display: inline-block;
         }
 
         .servico-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            color: var(--texto-claro);
         }
 
         .servico-card ul {
             list-style: none;
-            color: var(--texto-mutado);
-            font-size: 0.95rem;
         }
 
         .servico-card ul li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 1.1rem;
+            color: var(--texto-mutado);
         }
 
-        .servico-card ul li::before {
-            content: "•";
-            color: var(--cor-primaria);
-            font-weight: bold;
+        .servico-card ul li i {
+            color: var(--cor-azul);
+            margin-top: 0.3rem;
+            font-size: 0.9rem;
         }
 
-        /* Separador de Contactos Dedicado e Cobertura Geográfica */
-        .contactos-section {
+        /* Secção Avançada de Termografia (Novidade com Imagens Flir) */
+        .termografia-section {
             background-color: var(--bg-secundario);
-            padding: 5rem 2rem;
-            border-top: 1px solid #2e2e35;
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(0, 210, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+        }
+
+        .termo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .termo-galeria {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .termo-img-wrapper {
+            border: 2px solid #ff0055; /* Cor térmica / aviso */
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .termo-img-wrapper img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .termo-label {
+            position: absolute;
+            bottom: 0;
+            background: rgba(239, 68, 68, 0.9);
+            color: white;
+            width: 100%;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 0.3rem 0;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .termo-texto h2 {
+            font-size: 2.3rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .termo-texto h2 span {
+            color: #ef4444;
+        }
+
+        .termo-texto p {
+            color: var(--texto-mutado);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Separador de Contactos e Zonas */
+        .contactos-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .contactos-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -358,47 +386,41 @@
         .info-contacto h2 {
             font-size: 2.2rem;
             margin-bottom: 1.5rem;
-        }
-
-        .info-contacto p {
-            color: var(--texto-mutado);
-            margin-bottom: 2rem;
+            text-transform: uppercase;
         }
 
         .bloco-contacto {
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            background-color: var(--bg-cartao);
+            background-color: var(--bg-secundario);
             padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid #2e2e35;
-            margin-bottom: 1rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.02);
+            margin-bottom: 1.2rem;
         }
 
         .bloco-contacto i {
             font-size: 1.8rem;
-            color: var(--cor-primaria);
+            color: var(--cor-azul);
         }
 
         .bloco-contacto div h4 {
             font-size: 0.9rem;
-            color: var(--texto-mutado);
+            color: var(--texto-mutated);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .bloco-contacto div p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--texto-claro);
-            margin: 0;
+            font-weight: 600;
         }
 
-        /* Cartão de Cobertura Geográfica */
         .mapa-cobertura {
-            background: linear-gradient(135deg, #1e2638, #1a1a1e);
-            border: 1px solid #2e2e35;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #091420, #070708);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            border-radius: 8px;
             padding: 2.5rem;
             display: flex;
             flex-direction: column;
@@ -406,49 +428,43 @@
         }
 
         .mapa-cobertura h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .mapa-cobertura h3 i {
-            color: var(--cor-primaria);
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
         }
 
         .cidades-principais {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: flex;
             gap: 1rem;
         }
 
         .cidades-principais span {
-            background-color: rgba(255,255,255,0.05);
-            padding: 0.3rem 0.8rem;
+            background-color: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--cor-azul);
+            color: var(--cor-azul);
+            padding: 0.4rem 1rem;
             border-radius: 4px;
-            border: 1px solid rgba(255,255,255,0.1);
+            font-weight: 700;
+            font-size: 1.2rem;
         }
 
         .nota-outras {
-            background-color: rgba(245, 158, 11, 0.05);
-            border-left: 4px solid var(--cor-primaria);
-            padding: 1rem;
-            font-size: 0.95rem;
+            border-left: 4px solid var(--cor-dourado);
+            background-color: rgba(255, 183, 3, 0.03);
+            padding: 1.2rem;
+            font-size: 1.1rem;
             color: var(--texto-mutado);
         }
 
         /* Footer */
         footer {
-            background-color: var(--bg-principal);
-            padding: 2rem;
+            padding: 2.5rem;
             text-align: center;
             color: var(--texto-mutado);
-            font-size: 0.9rem;
-            border-top: 1px solid #2e2e35;
+            font-size: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background-color: #040405;
         }
 
         /* Botão Flutuante do WhatsApp */
@@ -464,8 +480,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
             z-index: 1000;
             transition: transform 0.3s;
         }
@@ -474,14 +490,10 @@
             transform: scale(1.1);
         }
 
-        /* Responsividade Básica */
         @media (max-width: 968px) {
-            .hero, .alerta-container, .contactos-container {
+            .hero, .termo-container, .contactos-container {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
-            }
-            .hero {
-                padding-top: 8rem;
             }
             .nav-links, .btn-header {
                 display: none;
@@ -491,15 +503,16 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header com espaço para o teu LOGO -->
     <header>
         <div class="nav-container">
-            <div class="logo">
-                <i class="fa-solid fa-bolt"></i> Tech<span>Volt</span>
+            <div class="logo-box">
+                <!-- Substitui logo.jpg pela tua imagem mantendo o mesmo nome no GitHub -->
+                <img src="logo.jpg" alt="TechVolt Logo" class="logo-img">
             </div>
             <ul class="nav-links">
                 <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#alertas">Avisos de Segurança</a></li>
+                <li><a href="#termografia">Termografia</a></li>
                 <li><a href="#contactos">Zonas e Contactos</a></li>
             </ul>
             <a href="https://wa.me/351969242077" target="_blank" class="btn-header">
@@ -508,121 +521,125 @@
         </div>
     </header>
 
-    <!-- Hero Section + Formulário -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-text">
             <div class="badge-dgeg">
                 <i class="fa-solid fa-shield-halved"></i> Técnico Responsável Inscrito na DGEG
             </div>
-            <h1>Instalações e Diagnóstico Elétrico <span>Profissional</span></h1>
-            <p>Execução técnica rigorosa, deteção de avarias complexas e modernização de quadros elétricos. Garanta a máxima segurança da sua infraestrutura com um profissional habilitado.</p>
-            
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--texto-mutado);">
-                    <i class="fa-solid fa-check text-color: var(--cor-primaria)"></i> Certificado e Seguro
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--texto-mutado);">
-                    <i class="fa-solid fa-check" style="color: var(--cor-primaria)"></i> Orçamentos Transparentes
-                </div>
-            </div>
+            <h1><span class="azul">Instalações</span> & <span class="dourado">Inspeções</span> Técnicas de Engenharia Elétrica</h1>
+            <p>Execução rigorosa em conformidade com as normas, inspeções preventivas e diagnóstico preditivo avançado de anomalias elétricas.</p>
         </div>
 
-        <!-- Formulário de Pedido Técnico (Referência Imagem 4) -->
+        <!-- Formulário Funcional -->
         <div class="hero-form-box">
-            <h3>Solicitar Intervenção Técnica</h3>
-            <p>Preencha os dados e receba uma resposta com a avaliação preliminar.</p>
-            
-            <!-- Configurado com Formspree para envio gratuito direto para o e-mail criado -->
+            <h3>Solicitar Avaliação Técnica</h3>
+            <p>Preencha os dados e receba suporte profissional qualificado.</p>
             <form action="https://formspree.io/f/techvolt.eletrecista@gmail.com" method="POST">
                 <div class="form-group">
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" name="name" required placeholder="Ex: João Silva">
+                    <label>Nome Completo</label>
+                    <input type="text" name="name" required placeholder="Ex: Engenheiro Silva">
                 </div>
                 <div class="form-group">
-                    <label for="contacto">Contacto Telefónico</label>
-                    <input type="tel" id="contacto" name="phone" required placeholder="Ex: 912 345 678">
+                    <label>Contacto Telefónico</label>
+                    <input type="tel" name="phone" required placeholder="Ex: 969 242 077">
                 </div>
                 <div class="form-group">
-                    <label for="descricao">Descrição do Problema ou Projeto</label>
-                    <textarea id="descricao" name="message" rows="3" required placeholder="Descreva brevemente o que necessita (Ex: quadro a disparar, nova instalação, certificação...)"></textarea>
+                    <label>Tipo de Intervenção ou Problema</label>
+                    <textarea name="message" rows="3" required placeholder="Descreva brevemente a sua necessidade (Nova instalação, painéis solares, inspeção térmica...)"></textarea>
                 </div>
-                <button type="submit" class="btn-submit">Enviar Pedido de Contacto</button>
+                <button type="submit" class="btn-submit">Enviar Pedido Técnico</button>
             </form>
         </div>
     </section>
 
-    <!-- Secção Sinais de Alerta (Referência Imagem 1 e 2) -->
-    <section id="alertas" class="alerta-section">
-        <div class="alerta-container">
-            <div class="alerta-imagem">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <h4>Risco de Incêndio e Choque</h4>
-                <p style="color: var(--texto-mutado); font-size: 0.95rem;">Instalações elétricas degradadas ou mal dimensionadas são uma das principais causas de sinistros domésticos e industriais.</p>
-            </div>
-            <div class="alerta-texto">
-                <h2>Identifica algum destes <span>Sinais de Perigo</span>?</h2>
-                <ul class="lista-alertas">
-                    <li><i class="fa-solid fa-circle-xmark"></i> <span>Disjuntores ou diferenciais a disparar no quadro com frequência.</span></li>
-                    <li><i class="fa-solid fa-circle-xmark"></i> <span>Cheiro a queimado vindo de tomadas, interruptores ou do quadro elétrico.</span></li>
-                    <li><i class="fa-solid fa-circle-xmark"></i> <span>Luzes a piscar ou perdas súbitas de intensidade na iluminação.</span></li>
-                    <li><i class="fa-solid fa-circle-xmark"></i> <span>Tomadas visivelmente quentes ao toque ou com marcas negras de fuligem.</span></li>
-                </ul>
-                <p style="margin-top: 1.5rem; font-weight: 600; color: #fca5a5;"><i class="fa-solid fa-hand"></i> Nunca tente reparar sozinho. Desligue o disjuntor geral e chame assistência certificada.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Serviços Avançados (Referência Imagem 5, 6 e 7) -->
+    <!-- Grelha de Serviços Corrigida (Adicionado Ícones Claros e Painéis Solares) -->
     <section id="servicos" class="servicos-section">
         <div class="section-header">
-            <h2>Especialidades Técnicas</h2>
-            <p>Soluções profissionais em conformidade com as regras técnicas de instalações elétricas (RTIEBT).</p>
+            <h2>Especialidades em Destaque</h2>
         </div>
 
         <div class="servicos-grid">
-            <!-- Card 1 -->
+            <!-- Bloco 1: ÍCONE DE DIAGNÓSTICO (Velocímetro/Painel corrigido para Radar de Análise) -->
             <div class="servico-card">
-                <div class="servico-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <div class="servico-icon"><i class="fa-solid fa-microchip"></i></div>
                 <h3>Diagnóstico Avançado</h3>
                 <ul>
-                    <li>Localização de fugas de corrente</li>
-                    <li>Análise de sobrecargas na rede</li>
-                    <li>Resolução de curto-circuitos</li>
-                    <li>Testes de isolamento e continuidade</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Deteção e isolamento de fugas de corrente</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Análise de harmónicos e sobrecargas de rede</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Localização expedita de curto-circuitos</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Testes dielétricos, continuidade e isolamento</li>
                 </ul>
             </div>
-            <!-- Card 2 -->
+
+            <!-- Bloco 2: ÍCONE DE QUADROS ELÉTRICOS (Corrigido para Ícone de Módulo/Quadro Técnico) -->
             <div class="servico-card">
-                <div class="servico-icon"><i class="fa-solid fa-box-tissue"></i></div>
+                <div class="servico-icon"><i class="fa-solid fa-table-cells"></i></div>
                 <h3>Quadros Elétricos</h3>
                 <ul>
-                    <li>Montagem e eletrificação de raiz</li>
-                    <li>Substituição de disjuntores antigos</li>
-                    <li>Instalação de protetores de sobretensão</li>
-                    <li>Divisão correta de circuitos de carga</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Dimensionamento e montagem estrutural integral</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Atualização e migração de aparelhagem obsoleta</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Integração de Descarregadores de Sobretensões (DST)</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Balanceamento técnico rigoroso de cargas e fases</li>
                 </ul>
             </div>
-            <!-- Card 3 -->
+
+            <!-- Bloco 3: NOVIDADE - PAINÉIS SOLARES & CERTIFICAÇÃO MANDATÓRIA -->
             <div class="servico-card">
-                <div class="servico-icon"><i class="fa-solid fa-house-lightning"></i></div>
-                <h3>Instalações em Geral</h3>
+                <div class="servico-icon"><i class="fa-solid fa-solar-panel"></i></div>
+                <h3>Sistemas Solares Fotovoltaicos</h3>
                 <ul>
-                    <li>Remodelações elétricas completas</li>
-                    <li>Cablagem estruturada e caminhos de cabos</li>
-                    <li>Instalação de tomadas e novos pontos</li>
-                    <li>Sistemas de iluminação técnica e LED</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Montagem estrutural e cablagem CC/CA regulamentar</li>
+                    <li><i class="fa-solid fa-caret-right"></i> <strong>Certificação Obrigatória por Lei:</strong> Emissão de termos de responsabilidade para instalações fotovoltaicas obrigatórias reguladas</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Comissionamento técnico e testes de inversores</li>
+                </ul>
+            </div>
+
+            <!-- Bloco 4: ÍCONE DE INSTALAÇÕES EM GERAL (Corrigido para Ferramentas de Instalação) -->
+            <div class="servico-card">
+                <div class="servico-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <h3>Instalações Gerais</h3>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> Remodelações e infraestruturas elétricas de raiz</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Enfiamento de circuitos e caminhos de cabos dedicados</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Instalação de aparelhagem técnica e tomadas de força</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Projetos de eficiência energética e iluminação LED</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Separador Dedicado de Contactos e Área Geográfica -->
+    <!-- Secção de Termografia Preditiva (Referência Imagem 2 e 3) -->
+    <section id="termografia" class="termografia-section">
+        <div class="termo-container">
+            <div class="termo-galeria">
+                <!-- Imagem 2 do Utilizador -->
+                <div class="termo-img-wrapper">
+                    <img src="image_1ed0bf.jpg" alt="Inspeção Flir Quadro Elétrico">
+                    <div class="termo-label">Sobrecarga Detetada</div>
+                </div>
+                <!-- Imagem 3 do Utilizador -->
+                <div class="termo-img-wrapper">
+                    <img src="image_1ed0fe.jpg" alt="Ponto Quente em Componente Elétrico">
+                    <div class="termo-label">Falha Oculta a 34.4°C</div>
+                </div>
+            </div>
+            <div class="termo-texto">
+                <h2>Inspeção por <span>Termografia</span></h2>
+                <p>Muitas das falhas catastróficas e incêndios de origem elétrica iniciam-se com o sobreaquecimento silencioso de bornes, barramentos ou disjuntores mal apertados.</p>
+                <p>Através da análise de imagem térmica infravermelha com equipamentos calibrados, localizamos com precisão milimétrica os pontos quentes ocultos antes que provoquem uma paragem forçada ou danos severos na sua instalação.</p>
+                <div style="display: flex; gap: 1rem; align-items: center; color: var(--cor-dourado); font-weight: bold; font-size: 1.2rem;">
+                    <i class="fa-solid fa-eye-dropper"></i> Diagnóstico Não Destrutivo e Preditivo
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contactos e Cobertura Geográfica -->
     <section id="contactos" class="contactos-section">
         <div class="contactos-container">
             <div class="info-contacto">
                 <h2>Contactos Oficiais</h2>
-                <p>Entre em contacto diretamente para agendamentos urgentes ou esclarecimento de dúvidas técnicas.</p>
-                
                 <div class="bloco-contacto">
                     <i class="fa-solid fa-envelope"></i>
                     <div>
@@ -630,28 +647,23 @@
                         <p>techvolt.eletrecista@gmail.com</p>
                     </div>
                 </div>
-
                 <div class="bloco-contacto">
                     <i class="fa-solid fa-phone"></i>
                     <div>
-                        <h4>Telemóvel / WhatsApp</h4>
+                        <h4>Linha Direta / WhatsApp</h4>
                         <p>+351 969 242 077</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Cartão Geográfico de Cobertura -->
             <div class="mapa-cobertura">
-                <h3><i class="fa-solid fa-map-location-dot"></i> Área de Cobertura Técnica</h3>
-                <p style="color: var(--texto-mutado); margin-bottom: 1.5rem;">Atendimento regular focado nas seguintes regiões principais:</p>
-                
+                <h3><i class="fa-solid fa-location-crosshairs" style="color: var(--cor-azul);"></i> Raio de Atuação Técnica</h3>
                 <div class="cidades-principais">
                     <span>Lisboa</span>
                     <span>Santarém</span>
                 </div>
-
                 <div class="nota-outras">
-                    <p><strong>Outras localizações:</strong> Encontra-se fora destas zonas? Envie uma mensagem detalhada com o seu contacto para podermos analisar a viabilidade e disponibilidade de deslocação técnica.</p>
+                    <p><strong>Outras localizações:</strong> Caso necessite de apoio técnico noutras regiões do país, submeta o formulário detalhado para avaliarmos prontamente a mobilização da nossa equipa técnica.</p>
                 </div>
             </div>
         </div>
@@ -659,11 +671,11 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 TechVolt Elétrica. Todos os direitos reservados. Técnico Responsável Credenciado pela DGEG.</p>
+        <p>&copy; 2026 TechVolt. Todos os direitos reservados. Técnico Credenciado Inscrito na Direção-Geral de Energia e Geologia (DGEG).</p>
     </footer>
 
     <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/351969242077?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20ou%20interven%C3%A7%C3%A3o%20t%C3%A9cnica." class="whatsapp-float" target="_blank" title="Fale Comigo pelo WhatsApp">
+    <a href="https://wa.me/351969242077?text=Olá!%20Gostaria%20de%20agendar%20uma%20inspeção%20ou%20intervenção%20técnica." class="whatsapp-float" target="_blank">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
