@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechVolt | Instalações, Reparações e Inspeções Elétricas</title>
+    <meta name="description" content="Eletricista certificado DGEG em Lisboa e Santarém. Instalações, reparações e inspeções elétricas, termografia industrial e sistemas solares fotovoltaicos.">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Electrician",
+      "name": "TechVolt",
+      "description": "Instalações, reparações e inspeções elétricas. Técnico credenciado DGEG.",
+      "telephone": "+351969242077",
+      "email": "techvolt.eletricista@gmail.com",
+      "areaServed": ["Lisboa", "Santarém"],
+      "priceRange": "€€"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-principal: #070708; 
+            --bg-secundario: #0f1015; 
+            --bg-cartao: #14161e; 
+            --cor-azul: #00d2ff; 
+            --cor-dourado: #ffb703; 
+            --cor-dourado-hover: #fb8500;
+            --texto-claro: #ffffff;
+            --texto-mutado: #a3b1c6;
+            --alerta: #ef4444;
+            --whatsapp: #25d366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Rajdhani', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        section[id] {
+            scroll-margin-top: 90px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .reveal.visivel {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .servicos-grid .servico-card:nth-child(1) { transition-delay: 0s; }
+        .servicos-grid .servico-card:nth-child(2) { transition-delay: 0.1s; }
+        .servicos-grid .servico-card:nth-child(3) { transition-delay: 0.2s; }
+        .servicos-grid .servico-card:nth-child(4) { transition-delay: 0.3s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
+            line-height: 1.5;
+            font-size: 1.15rem;
+        }
+
+        h1, h2, h3, h4, .logo {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        header {
+            background-color: rgba(7, 7, 8, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(0, 210, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 50px; 
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--texto-mutado);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cor-azul);
+        }
+
+        .btn-header {
+            background: linear-gradient(90deg, var(--cor-azul), var(--cor-dourado));
+            color: var(--bg-principal);
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .btn-header:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--texto-claro);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .hero {
+            padding: 11rem 2rem 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero-text h1 .azul { color: var(--cor-azul); text-shadow: 0 0 10px rgba(0,210,255,0.3); }
+        .hero-text h1 .dourado { color: var(--cor-dourado); text-shadow: 0 0 10px rgba(255,183,3,0.3); }
+
+        .hero-text p {
+            color: var(--texto-mutado);
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 580px;
+        }
+
+        .badge-dgeg {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: rgba(255, 183, 3, 0.08);
+            border: 1px solid var(--cor-dourado);
+            color: var(--cor-dourado);
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 0 10px rgba(255,183,3,0.1);
+        }
+
+        .hero-form-box {
+            background-color: var(--bg-secundario);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-form-box h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--texto-claro);
+            text-transform: uppercase;
+        }
+
+        .hero-form-box p {
+            color: var(--texto-mutado);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            color: var(--texto-claro);
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background-color: var(--bg-cartao);
+            border: 1px solid #2e323d;
+            padding: 0.8rem;
+            border-radius: 4px;
+            color: white;
+            font-size: 1.1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--cor-azul);
+            box-shadow: 0 0 8px rgba(0,210,255,0.2);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(90deg, var(--cor-dourado), var(--cor-dourado-hover));
+            color: var(--bg-principal);
+            border: none;
+            padding: 1rem;
+            border-radius: 4px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: opacity 0.3s;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--cor-azul);
+            outline-offset: 3px;
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-status {
+            margin-top: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            display: none;
+        }
+
+        .form-status.sucesso {
+            color: #4ade80;
+            display: block;
+        }
+
+        .form-status.erro {
+            color: var(--alerta);
+            display: block;
+        }
+
+        .form-status.aguarde {
+            color: var(--texto-mutado);
+            display: block;
+        }
+
+        .servicos-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.3rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--cor-azul);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .servico-card {
+            background-color: var(--bg-secundario);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 2.5rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .servico-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cor-dourado);
+            box-shadow: 0 5px 20px rgba(255,183,3,0.05);
+        }
+
+        .servico-icon {
+            font-size: 2.2rem;
+            color: var(--cor-dourado);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .servico-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            color: var(--texto-claro);
+        }
+
+        .servico-card ul {
+            list-style: none;
+        }
+
+        .servico-card ul li {
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 1.1rem;
+            color: var(--texto-mutado);
+        }
+
+        .servico-card ul li i {
+            color: var(--cor-azul);
+            margin-top: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .termografia-section {
+            background-color: var(--bg-secundario);
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(0, 210, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+        }
+
+        .termo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .termo-galeria {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .termo-img-wrapper {
+            border: 2px solid #ff0055; 
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .termo-img-wrapper img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .termo-label {
+            position: absolute;
+            bottom: 0;
+            background: rgba(239, 68, 68, 0.9);
+            color: white;
+            width: 100%;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 0.3rem 0;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .termo-texto h2 {
+            font-size: 2.3rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .termo-texto h2 span {
+            color: #ef4444;
+        }
+
+        .termo-texto p {
+            color: var(--texto-mutado);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .termo-disclaimer {
+            grid-column: 1 / -1;
+            color: var(--texto-mutado);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .contactos-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contactos-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .info-contacto h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .bloco-contacto {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background-color: var(--bg-secundario);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.02);
+            margin-bottom: 1.2rem;
+        }
+
+        .bloco-contacto i {
+            font-size: 1.8rem;
+            color: var(--cor-azul);
+        }
+
+        .bloco-contacto div h4 {
+            font-size: 0.9rem;
+            color: var(--texto-mutado);
+            text-transform: uppercase;
+        }
+
+        .bloco-contacto div p {
+            font-size: 1.2rem;
+            color: var(--texto-claro);
+            font-weight: 600;
+        }
+
+        .bloco-contacto div p a {
+            color: var(--texto-claro);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .bloco-contacto div p a:hover {
+            color: var(--cor-azul);
+        }
+
+        .mapa-cobertura {
+            background: linear-gradient(135deg, #091420, #070708);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            border-radius: 8px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mapa-cobertura h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .cidades-principais {
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .cidades-principais span {
+            background-color: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--cor-azul);
+            color: var(--cor-azul);
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nota-outras {
+            border-left: 4px solid var(--cor-dourado);
+            background-color: rgba(255, 183, 3, 0.03);
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--texto-mutado);
+        }
+
+        footer {
+            padding: 2.5rem;
+            text-align: center;
+            color: var(--texto-mutado);
+            font-size: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            background-color: #040405;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 1000;
+            transition: transform 0.3s;
+            animation: pulso-whatsapp 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulso-whatsapp {
+            0%, 100% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 0 10px rgba(37, 211, 102, 0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .whatsapp-float {
+                animation: none;
+            }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 968px) {
+            .hero, .termo-container, .contactos-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 320px;
+                background-color: var(--bg-secundario);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 25px rgba(0,0,0,0.5);
+            }
+
+            .nav-links.aberto {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+
+            .btn-header {
+                position: fixed;
+                top: 1rem;
+                right: 4.5rem;
+                display: inline-block;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-box">
+                <img src="logo.gif" alt="TechVolt Logo" class="logo-img">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#termografia">Termografia</a></li>
+                <li><a href="#contactos">Zonas e Contactos</a></li>
+            </ul>
+            <a href="https://wa.me/351969242077" target="_blank" rel="noopener noreferrer" class="btn-header">
+                <i class="fa-brands fa-whatsapp"></i> Urgências
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <div class="badge-dgeg">
+                <i class="fa-solid fa-shield-halved"></i> Técnico Responsável Inscrito na DGEG
+            </div>
+            <h1><span class="azul">Instalações</span> & <span class="dourado">Inspeções</span> Elétricas Residenciais e Comerciais</h1>
+            <p>Execução rigorosa em conformidade com as normas RTIEBT, inspeções preventivas e diagnóstico preditivo avançado de anomalias.</p>
+        </div>
+
+        <div class="hero-form-box">
+            <h3>Solicitar Avaliação Técnico-Comercial</h3>
+            <p>Preencha os dados e receba suporte profissional qualificado.</p>
+            <form id="contactForm" action="https://formspree.io/f/xpqgvrka" method="POST">
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" name="name" required placeholder="Ex: João Silva">
+                </div>
+                <div class="form-group">
+                    <label>Contacto Telefónico</label>
+                    <input type="tel" name="phone" required placeholder="Ex: 969 242 077">
+                </div>
+                <div class="form-group">
+                    <label>Tipo de Intervenção ou Problema</label>
+                    <textarea name="message" rows="3" required placeholder="Descreva brevemente a sua necessidade (Nova instalação, painéis solares, inspeção térmica...)"></textarea>
+                </div>
+                <input type="hidden" name="_subject" value="Novo pedido - Site TechVolt">
+                <button type="submit" class="btn-submit">Enviar Pedido Técnico</button>
+                <p class="form-status" id="formStatus"></p>
+            </form>
+        </div>
+    </section>
+
+    <section id="servicos" class="servicos-section">
+        <div class="section-header reveal">
+            <h2>Especialidades em Destaque</h2>
+        </div>
+
+        <div class="servicos-grid">
+            <div class="servico-card reveal">
+                <div class="servico-icon"><i class="fa-solid fa-microchip"></i></div>
+                <h3>Diagnóstico Avançado</h3>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> Deteção e isolamento de fugas de corrente</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Análise de harmónicos e sobrecargas de rede</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Localização expedita de curto-circuitos</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Testes dielétricos, continuidade e isolamento</li>
+                </ul>
+            </div>
+
+            <div class="servico-card reveal">
+                <div class="servico-icon"><i class="fa-solid fa-table-cells"></i></div>
+                <h3>Quadros Elétricos</h3>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> Dimensionamento e montagem estrutural integral</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Atualização e migração de aparelhagem obsoleta</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Integração de Descarregadores de Sobretensões (DST)</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Balanceamento técnico rigoroso de cargas e fases</li>
+                </ul>
+            </div>
+
+            <div class="servico-card reveal">
+                <div class="servico-icon"><i class="fa-solid fa-solar-panel"></i></div>
+                <h3>Sistemas Solares Fotovoltaicos</h3>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> Montagem estrutural e cablagem CC/CA regulamentar</li>
+                    <li><i class="fa-solid fa-caret-right"></i> <strong>Certificação Obrigatória por Lei:</strong> Emissão de termos de responsabilidade para instalações fotovoltaicas obrigatórias reguladas</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Comissionamento técnico e testes de inversores</li>
+                </ul>
+            </div>
+
+            <div class="servico-card reveal">
+                <div class="servico-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <h3>Instalações Gerais</h3>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> Remodelações e infraestruturas elétricas de raiz</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Enfiamento de circuitos e caminhos de cabos dedicados</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Instalação de aparelhagem técnica e tomadas de força</li>
+                    <li><i class="fa-solid fa-caret-right"></i> Projetos de eficiência energética e iluminação LED</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="termografia" class="termografia-section">
+        <div class="termo-container">
+            <div class="termo-galeria reveal">
+                <div class="termo-img-wrapper">
+                    <img src="termografia.jpg" alt="Exemplo ilustrativo de imagem térmica" loading="lazy">
+                    <div class="termo-label">Exemplo Ilustrativo</div>
+                </div>
+                <div class="termo-img-wrapper">
+                    <img src="termografia2.jpg" alt="Exemplo ilustrativo de imagem térmica" loading="lazy">
+                    <div class="termo-label">Exemplo Ilustrativo</div>
+                </div>
+                <p class="termo-disclaimer">* Imagens ilustrativas do tipo de análise térmica disponibilizada. Serviço a iniciar brevemente com equipamento próprio calibrado.</p>
+            </div>
+            <div class="termo-texto reveal">
+                <h2>Inspeção por <span>Termografia</span></h2>
+                <p>Muitas das falhas catastróficas e incêndios de origem elétrica iniciam-se com o sobreaquecimento silencioso de bornes, barramentos ou disjuntores mal apertados.</p>
+                <p>Através da análise de imagem térmica infravermelha com equipamentos calibrados, localizo com precisão milimétrica os pontos quentes ocultos antes que provoquem uma paragem forçada ou danos severos na sua instalação.</p>
+                <div style="display: flex; gap: 1rem; align-items: center; color: var(--cor-dourado); font-weight: bold; font-size: 1.2rem;">
+                    <i class="fa-solid fa-eye-dropper"></i> Diagnóstico Não Destrutivo e Preditivo
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contactos" class="contactos-section">
+        <div class="contactos-container">
+            <div class="info-contacto reveal">
+                <h2>Contactos Oficiais</h2>
+                <div class="bloco-contacto">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>E-mail Profissional</h4>
+                        <p><a href="mailto:techvolt.eletricista@gmail.com">techvolt.eletricista@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="bloco-contacto">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Linha Direta / WhatsApp</h4>
+                        <p><a href="tel:+351969242077">+351 969 242 077</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mapa-cobertura reveal">
+                <h3><i class="fa-solid fa-location-crosshairs" style="color: var(--cor-azul);"></i> Raio de Atuação Técnica</h3>
+                <div class="cidades-principais">
+                    <span>Lisboa</span>
+                    <span>Santarém</span>
+                </div>
+                <div class="nota-outras">
+                    <p><strong>Outras localizações:</strong> Caso necessite de apoio técnico noutras regiões do país, submeta o formulário detalhado para eu poder avaliar prontamente a possibilidade de deslocação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 TechVolt. Todos os direitos reservados. Técnico Credenciado Inscrito na Direção-Geral de Energia e Geologia (DGEG).</p>
+    </footer>
+
+    <a href="https://wa.me/351969242077?text=Olá!%20Gostaria%20de%20agendar%20uma%20inspeção%20ou%20intervenção%20técnica." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Animação de entrada ao fazer scroll
+        const elementosReveal = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entradas) => {
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    entrada.target.classList.add('visivel');
+                    observer.unobserve(entrada.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        elementosReveal.forEach(el => observer.observe(el));
+
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('aberto');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('aberto');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-xmark');
+            });
+        });
+
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('formStatus');
+        const submitBtn = form.querySelector('.btn-submit');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = new FormData(form);
+            status.className = 'form-status aguarde';
+            status.textContent = 'A enviar...';
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    status.className = 'form-status sucesso';
+                    status.textContent = 'Pedido enviado com sucesso! Entraremos em contacto brevemente.';
+                    form.reset();
+                } else {
+                    status.className = 'form-status erro';
+                    status.textContent = 'Ocorreu um erro. Tente novamente ou contacte-nos via WhatsApp.';
+                }
+            } catch (error) {
+                status.className = 'form-status erro';
+                status.textContent = 'Ocorreu um erro. Tente novamente ou contacte-nos via WhatsApp.';
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+
+</body>
+</html>
