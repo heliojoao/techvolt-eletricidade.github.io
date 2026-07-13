@@ -53,7 +53,7 @@
         .reveal {
             opacity: 0;
             transform: translateY(24px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            transition: opacity 0.7s ease-out, trans 0.7s ease-out;
         }
 
         .reveal.visivel {
@@ -689,6 +689,12 @@
                     <textarea name="message" rows="3" required placeholder="Descreva brevemente a sua necessidade (Nova instalação, painéis solares, inspeção térmica...)"></textarea>
                 </div>
                 <input type="hidden" name="_subject" value="Novo pedido - Site TechVolt">
+                <div class="form-group">
+        <label style="font-size: 0.9rem; font-weight: normal; display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+            <input type="checkbox" name="privacy" required style="width: auto; margin-top: 4px;">
+            <span>Li e aceito a política de privacidade.</span>
+        </label>
+    </div>
                 <button type="submit" class="btn-submit">Enviar Pedido Técnico</button>
                 <p class="form-status" id="formStatus"></p>
             </form>
