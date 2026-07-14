@@ -877,10 +877,14 @@
                     headers: { 'Accept': 'application/json' }
                 });
 
-                if (response.ok) {
-                    status.className = 'form-status sucesso';
-                    status.textContent = 'Pedido enviado com sucesso! Entraremos em contacto brevemente.';
-                    form.reset();
+                 if (response.ok) {
+                // Linha a adicionar:
+                gtag('event', 'conversion', {'send_to': 'AW-18320295913/d0hnCPWp_M8cEOmP5p9E'});
+
+                status.className = 'form-status sucesso';
+                status.textContent = 'Pedido enviado com sucesso! Entraremos em contacto brevemente.';
+                form.reset();
+
                 } else {
                     status.className = 'form-status erro';
                     status.textContent = 'Ocorreu um erro. Tente novamente ou contacte-nos via WhatsApp.';
