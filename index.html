@@ -650,6 +650,21 @@
             }
         }
     </style>
+    /* Novo estilo para o seletor mobile */
+    .lang-selector-mobile { display: none; }
+    @media (max-width: 968px) {
+        .lang-selector-mobile {
+            display: flex;
+            position: fixed;
+            top: 1.2rem;
+            right: 9.5rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            z-index: 1001;
+        }
+        .lang-selector-mobile a { color: white; text-decoration: none; padding: 0 5px; }
+    }
+</style>
 </head>
 <body>
 
@@ -658,15 +673,14 @@
             <div class="logo-box">
                 <a href="#"><img src="logo.gif" alt="TechVolt Logo" class="logo-img"></a>
             </div>
+           <div class="lang-selector-mobile">
+    <a href="/">PT</a> | <a href="/en/">EN</a>
+</div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#termografia">Termografia</a></li>
-                <li><a href="#contactos">Zonas e Contactos</a></li>
-                <!-- Seletor de Idioma -->
-                <li style="border-top: 1px solid #333; margin-top: 10px; padding-top: 10px;">
-                    <a href="/" style="color: var(--cor-azul);">PT</a> | <a href="/en/">EN</a>
-                </li>
-            </ul>
+               <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#termografia">Termografia</a></li>
+    <li><a href="#contactos">Zonas e Contactos</a></li>
+</ul> 
             <a href="https://wa.me/351969242077" target="_blank" rel="noopener noreferrer" class="btn-header">
                 <i class="fa-brands fa-whatsapp"></i> Urgências
             </a>
